@@ -1,6 +1,23 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
+format = """
+$username\
+$hostname\
+$os\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$cmd_duration\
+$line_break\
+$dotnet\
+$golang\
+$java\
+$python\
+$rust\
+$character"""
+
 # Inserts a blank line between shell prompts
 add_newline = true
 
@@ -8,6 +25,74 @@ add_newline = true
 [character] # The name of the module we are configuring is 'character'
 success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set to '➜' with the color 'bold green'
 
+[dotnet]
+format = '[$symbol($version )]($style)'
+
+[golang]
+format = '[$symbol($version )]($style)'
+
+[os]
+disabled = false
+
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+AlmaLinux = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Artix = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Kali = " "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+RockyLinux = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Void = " "
+Windows = "󰍲 "
+
+[hostname]
+format = '[@$ssh_symbol$hostname]($style) '
+ssh_only = false
+
+[java]
+format = '[$symbol($version )]($style)'
+
 # Disable the package module, hiding it from the prompt completely
 [package]
 disabled = true
+
+[rust]
+format = '[$symbol($version )]($style)'
+
+[username]
+format = '[$user]($style)'
+show_always = true
